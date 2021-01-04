@@ -1,10 +1,14 @@
 package com.sunzhen.mall.product.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
@@ -56,5 +60,9 @@ public class CategoryEntity implements Serializable {
 	 * 商品数量
 	 */
 	private Integer productCount;
+
+    @JsonInclude(JsonInclude.Include.NON_EMPTY) //属性为 空（“”） 或者为 NULL 都不序列化
+    @TableField(exist=false) //当前属性不是数据库的字段
+    private List<CategoryEntity> children;
 
 }

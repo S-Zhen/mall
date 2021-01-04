@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.sunzhen.common.utils.PageUtils;
 import com.sunzhen.mall.product.entity.CategoryEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +17,14 @@ import java.util.Map;
 public interface CategoryService extends IService<CategoryEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    /**
+    * @Description: 查出所有分类以及子分类，以树形结构组装起来
+    * @Param: []
+    * @return: java.util.List<com.sunzhen.mall.product.entity.CategoryEntity>
+    * @Author: sunzhen
+    * @Date: 2021/1/4
+    */
+    List<CategoryEntity> listWithTree();
 }
 
