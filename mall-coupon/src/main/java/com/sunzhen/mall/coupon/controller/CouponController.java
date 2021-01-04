@@ -31,6 +31,20 @@ public class CouponController {
     private CouponService couponService;
 
     /**
+    * @Description: 用于测试feign的方法
+    * @Param: []
+    * @return: com.sunzhen.common.utils.R
+    * @Author: sunzhen
+    * @Date: 2021/1/4
+    */
+    @RequestMapping("/member/list")
+    public R memberCouponTest(){
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("满100减100");
+        return R.ok().put("coupons", couponEntity);
+    }
+
+    /**
      * 列表
      */
     @RequestMapping("/list")
